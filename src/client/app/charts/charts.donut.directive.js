@@ -3,13 +3,13 @@
 
   angular.module('hz.app.charts', []).directive('donutChart', function() {
 
-    var link = function($scope, $element, $attr) {
-      var data = $scope[$attr.data];
-      var colors = $attr.colors ? $scope[$attr.colors] : [ "#0000ff", "#00ff00", "#999" ];
+    var link = function(scope, element, attrs) {
+      var data = scope[attrs.data];
+      var colors = attrs.colors ? scope[attrs.colors] : [ "#0000ff", "#00ff00", "#999" ];
 
-      var diameter = $attr.diameter;
+      var diameter = attrs.diameter;
       var radius = diameter / 2;
-      var thickness = $attr.thickness;
+      var thickness = attrs.thickness;
       var colorScale = d3.scale.ordinal().range(colors);
 
       var arc = d3.svg.arc()
@@ -20,7 +20,7 @@
                          .sort(null)
                          .value(function(d) { return d.portion; });
 
-      var svg = d3.select($element[0])
+      var svg = d3.select(element[0])
                   .append("svg")
                   .attr("width", diameter)
                   .attr("height", diameter)
@@ -38,14 +38,14 @@
        .style("fill", function(d) { return colorScale(d.data.label); })
        .attr("title", function(d) { return d.data.label + ": " + d.data.portion; });
 
-      var text = $attr.isUnicode === "true" ? String.fromCharCode(parseInt($attr.text, 16)) : $attr.text;
+      var text = attrs.isUnicode === "true" ? String.fromCharCode(parseInt(attrs.text, 16)) : attrs.text;
       if (text) {
-        var fontFamily = $attr.fontFamily ? $attr.fontFamily : "Open Sans,sans-serif";
-        var fontVariant = $attr.fontVariant ? $attr.fontVariant : "normal";
-        var fontWeight = $attr.fontWeight ? $attr.fontWeight : "normal";
-        var fontStyle = $attr.fontStyle ? $attr.fontStyle : "normal";
-        var fontSize = $attr.fontSize ? $attr.fontSize : "1em";
-        var fontColor = $attr.fontColor ? $attr.fontColor : "#333333";
+        var fontFamily = attrs.fontFamily ? attrs.fontFamily : "Open Sans,sans-serif";
+        var fontVariant = attrs.fontVariant ? attrs.fontVariant : "normal";
+        var fontWeight = attrs.fontWeight ? attrs.fontWeight : "normal";
+        var fontStyle = attrs.fontStyle ? attrs.fontStyle : "normal";
+        var fontSize = attrs.fontSize ? attrs.fontSize : "1em";
+        var fontColor = attrs.fontColor ? attrs.fontColor : "#333333";
         g.append("text")
          .text(text)
          .attr("dy", "0.38em")
