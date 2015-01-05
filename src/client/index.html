@@ -33,23 +33,19 @@
     <ul class="small-block-grid-2">
       <li>
         <strong>HTML</strong>
-        <pre>
-          &lt;donut-chart
-            chart-data="data"
-            chart-text="25%"&gt;
-          &lt;/donut-chart&gt;
-        </pre>
+        <pre>&lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;</pre>
       </li>
       <li>
         <strong>Controller</strong>
         <pre>
-          $scope.data = [
-            { label: 'Current', portion: 1 },
-            { label: 'Applied', portion: 1 },
-            { label: 'Available', portion: 6 }
-          ];
-
-          $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
+  angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
+    $scope.data = [
+      { label: 'Current', portion: 1 },
+      { label: 'Applied', portion: 1 },
+      { label: 'Available', portion: 6 }
+    ];
+    $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
+  }]);
         </pre>
       </li>
     </ul>
