@@ -3,10 +3,10 @@ charts
 
 D3 donut chart as AngularJS directive
 
-HTML Usage:<br/>
+<h5>HTML Usage</h5>
 &lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;
 
-Controller Usage:<br/>
+<h5>Controller Usage</h5>
 $scope.data = [
     { label: 'Current', portion: 1 },
     { label: 'Applied', portion: 1 },
