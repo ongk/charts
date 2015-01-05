@@ -12,7 +12,6 @@ $scope.data = [
     { label: 'Applied', portion: 1 },
     { label: 'Available', portion: 6 }
   ];
-
 $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
 
 <hr>
