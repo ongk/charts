@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- <link href="content/styles.css" rel="stylesheet"/> -->
+  <link href="content/foundation.min.css" rel="stylesheet"/>
+  <link href="content/styles.css" rel="stylesheet"/>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="../../bower_components/angular/angular.min.js"></script>
-  <script src="../../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="../../bower_components/d3/d3.min.js"></script>
   <script src="app/app.module.js"></script>
   <script src="app/dashboard/dashboard.module.js"></script>
@@ -14,13 +14,115 @@
   <script src="app/charts/charts.donut.directive.js"></script>
 </head>
 <body ng-app="hz.app" ng-controller="DashboardCtrl">
-  <donut-chart
-    data="data"
-    colors="colors"
-    diameter="150"
-    thickness="20"
-    text="25%"
-    font-size="2em">
-  </donut-chart>
+
+  <h3>Donut Chart Directive</h3>
+  <hr>
+  <h5>Required attributes:</h5>
+  <ul id="requirements" class="no-bullet">
+    <li>chart-data - attribute name of data defined in $scope</li>
+    <li>chart-text - text to display in donut hole</li>
+  </ul>
+  <h5>Optional attributes:</h5>
+  <ul id="requirements" class="no-bullet">
+    <li>chart-colors - attribute name of colors defined in $scope</li>
+    <li>chart-diameter - diameter of donut chart</li>
+    <li>chart-thickness - thickness of donut</li>
+    <li>Core "text" attributes such as font-size, font-family, fill, etc...</li>
+  </ul>
+  <div id="usage" class="panel">
+    <ul class="small-block-grid-2">
+      <li>
+        <strong>HTML</strong>
+        <pre>
+          &lt;donut-chart
+            chart-data="data"
+            chart-text="25%"&gt;
+          &lt;/donut-chart&gt;
+        </pre>
+      </li>
+      <li>
+        <strong>Controller</strong>
+        <pre>
+          $scope.data = [
+            { label: 'Current', portion: 1 },
+            { label: 'Applied', portion: 1 },
+            { label: 'Available', portion: 6 }
+          ];
+
+          $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
+        </pre>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <table id="examples">
+    <thead>
+      <tr><th>Description</th><th>Code</th><th>Rendered</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <pre>&lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;</pre>
+        </td>
+        <td>
+          <donut-chart
+            chart-data="data"
+            chart-text="25%">
+          </donut-chart>
+        </td>
+      </tr>
+      <tr>
+        <td>Custom colors</td>
+        <td>
+          <pre>&lt;donut-chart chart-data="data" chart-text="25%" chart-colors="colors"&gt;&lt;/donut-chart&gt;</pre>
+        </td>
+        <td>
+          <donut-chart
+            chart-data="data"
+            chart-text="25%"
+            chart-colors="colors">
+          </donut-chart>
+        </td>
+      </tr>
+      <tr>
+        <td>Custom diameter, thickness, font size</td>
+        <td>
+          <pre>&lt;donut-chart chart-data="data" chart-diameter="150" chart-thickness="20" chart-text="25%" font-size="2em"&gt;&lt;/donut-chart&gt;
+          </pre>
+        </td>
+        <td>
+          <donut-chart
+            chart-data="data"
+            chart-diameter="150"
+            chart-thickness="20"
+            chart-text="25%"
+            font-size="2em">
+          </donut-chart>
+        </td>
+      </tr>
+      <tr>
+        <td>Using Font Awesome icon</td>
+        <td>
+          <pre>&lt;donut-chart chart-data="data" chart-diameter="150" chart-thickness="20" chart-text="f207" chart-is-unicode="true" font-family="FontAwesome" font-size="2em"&gt;&lt;/donut-chart&gt;
+          </pre>
+        </td>
+        <td>
+          <donut-chart
+            chart-data="data"
+            chart-diameter="150"
+            chart-thickness="20"
+            chart-text="f207"
+            chart-is-unicode="true"
+            font-family="FontAwesome"
+            font-size="2em">
+          </donut-chart>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
 </html>
