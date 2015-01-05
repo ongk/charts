@@ -7,13 +7,13 @@ D3 donut chart as AngularJS directive
 &lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;
 
 <h5>Controller Usage</h5>
-$scope.data = [
+<pre>$scope.data = [
     { label: 'Current', portion: 1 },
     { label: 'Applied', portion: 1 },
     { label: 'Available', portion: 6 }
   ];
-
 $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
+</pre>
 
 <hr>
 
