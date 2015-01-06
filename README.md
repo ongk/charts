@@ -7,7 +7,7 @@ D3 donut chart as AngularJS directive
 
 <h5>HTML Usage</h5>
 <pre>
-&lt;div ng-app="hz.app" ng-controller="DashboardCtrl"&gt;
+&lt;div ng-app="hz.app" ng-controller="MyCtrl"&gt;
   &lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;
 &lt;/div&gt;
 </pre>
