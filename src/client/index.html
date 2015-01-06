@@ -17,34 +17,48 @@
 
   <h3>Donut Chart Directive</h3>
   <hr>
-  <h5>Required attributes:</h5>
-  <ul id="requirements" class="no-bullet">
-    <li>chart-data - attribute name of data defined in $scope</li>
-    <li>chart-text - text to display in donut hole</li>
-  </ul>
-  <h5>Optional attributes:</h5>
-  <ul id="requirements" class="no-bullet">
-    <li>chart-colors - attribute name of colors defined in $scope</li>
-    <li>chart-diameter - diameter of donut chart</li>
-    <li>chart-thickness - thickness of donut</li>
-    <li>Core "text" attributes such as font-size, font-family, fill, etc...</li>
-  </ul>
+  <p>This directive generates a simple donut chart using D3. Any changes to chart-data will fire an update to the chart.</p>
   <div id="usage" class="panel">
     <ul class="small-block-grid-2">
       <li>
         <strong>HTML</strong>
-        <pre>&lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;</pre>
+        <pre>&lt;div ng-app="hz.app" ng-controller="DashboardCtrl"&gt;</pre>
+        <pre>  &lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;</pre>
+        <pre>&lt;/div&gt;</pre>
+        <hr>
+        <h5>Attributes:</h5>
+        <ul id="attributes" class="no-bullet">
+          <li>chart-data (required) - attribute name of data defined in $scope</li>
+          <li>chart-diameter - diameter of donut chart</li>
+          <li>chart-thickness - thickness of donut</li>
+          <li>Any attributes for &lt;text&gt; element such as font-size, font-family, fill, etc...</li>
+        </ul>
       </li>
       <li>
         <strong>Controller</strong>
         <pre>
   angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
-    $scope.data = [
-      { label: 'Current', portion: 1 },
-      { label: 'Applied', portion: 1 },
-      { label: 'Available', portion: 6 }
-    ];
-    $scope.colors = [ '#0000ff', '#00ff00', '#999' ];
+    $scope.instances = {
+      data: [
+        { label: 'Current', slice: 1 },
+        { label: 'Applied', slice: 1 },
+        { label: 'Available', slice: 6 }
+      ],
+      colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
+      text: "25%"
+    };
+
+    // Change the data (optional)
+    $scope.updateChart = function() {
+      $scope.instances = {
+        data: [
+          { label: 'Current', slice: 1 },
+          { label: 'Applied', slice: 7 }
+        ],
+        colors: [ '#1f83c6', '#ff0000' ],
+        text: "100%"
+      };
+    };
   }]);
         </pre>
       </li>
@@ -53,6 +67,7 @@
 
   <hr>
 
+  <button type="button" ng-click="updateChart()">Update Charts</button>
   <table id="examples">
     <thead>
       <tr><th>Description</th><th>Code</th><th>Rendered</th></tr>
@@ -61,59 +76,40 @@
       <tr>
         <td>Default</td>
         <td>
-          <pre>&lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;</pre>
+          <pre>&lt;donut-chart chart-data="instances"&gt;&lt;/donut-chart&gt;</pre>
         </td>
         <td>
-          <donut-chart
-            chart-data="data"
-            chart-text="25%">
-          </donut-chart>
-        </td>
-      </tr>
-      <tr>
-        <td>Custom colors</td>
-        <td>
-          <pre>&lt;donut-chart chart-data="data" chart-text="25%" chart-colors="colors"&gt;&lt;/donut-chart&gt;</pre>
-        </td>
-        <td>
-          <donut-chart
-            chart-data="data"
-            chart-text="25%"
-            chart-colors="colors">
-          </donut-chart>
+          <donut-chart chart-data="instances"></donut-chart>
         </td>
       </tr>
       <tr>
         <td>Custom diameter, thickness, font size</td>
         <td>
-          <pre>&lt;donut-chart chart-data="data" chart-diameter="150" chart-thickness="20" chart-text="25%" font-size="2em"&gt;&lt;/donut-chart&gt;
+          <pre>&lt;donut-chart chart-data="vcpus" chart-diameter="150" chart-thickness="20" font-size="3em"&gt;&lt;/donut-chart&gt;
           </pre>
         </td>
         <td>
           <donut-chart
-            chart-data="data"
+            chart-data="vcpus"
             chart-diameter="150"
             chart-thickness="20"
-            chart-text="25%"
-            font-size="2em">
+            font-size="3em">
           </donut-chart>
         </td>
       </tr>
       <tr>
         <td>Using Font Awesome icon</td>
         <td>
-          <pre>&lt;donut-chart chart-data="data" chart-diameter="150" chart-thickness="20" chart-text="f207" chart-is-unicode="true" font-family="FontAwesome" font-size="2em"&gt;&lt;/donut-chart&gt;
+          <pre>&lt;donut-chart chart-data="ram" chart-diameter="150" chart-thickness="20" font-family="FontAwesome" font-size="3.5em"&gt;&lt;/donut-chart&gt;
           </pre>
         </td>
         <td>
           <donut-chart
-            chart-data="data"
+            chart-data="ram"
             chart-diameter="150"
             chart-thickness="20"
-            chart-text="f207"
-            chart-is-unicode="true"
             font-family="FontAwesome"
-            font-size="2em">
+            font-size="3.5em">
           </donut-chart>
         </td>
       </tr>
