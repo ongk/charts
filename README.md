@@ -5,7 +5,7 @@ D3 donut chart as AngularJS directive
 
 <p>This directive generates a simple donut chart using D3. Any changes to chart-data will fire an update to the chart.</p>
 
-<h5>HTML Usage</h5>
+<h5>Markup</h5>
 <pre>
 &lt;div ng-app="hz.app" ng-controller="MyCtrl"&gt;
   &lt;donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart&gt;
