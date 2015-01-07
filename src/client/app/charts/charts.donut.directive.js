@@ -3,7 +3,7 @@
 
   angular.module('hz.app.charts', []).directive('donutChart', function() {
 
-    var link = function(scope, element, attrs) {
+    function link(scope, element, attrs) {
       var diameter = attrs.chartDiameter ? attrs.chartDiameter : 70;
       var radius = diameter / 2;
       var thickness = attrs.chartThickness ? attrs.chartThickness : 10;
@@ -23,7 +23,7 @@
                   .append('g')
                   .attr('transform', 'translate(' + radius + ',' + radius + ')');
 
-      scope.$watch('chartData', function(data) {
+      function updateChart(data) {
         var colorScale = data.colors ? d3.scale.ordinal().range(data.colors) : d3.scale.category20();
 
         d3.select(element[0]).selectAll('.arc').remove();
@@ -61,8 +61,11 @@
              .text(text)
              .attr(textAttributes);
         }
-      });
-    };
+      }
+
+      var unwatch = scope.$watch('chartData', updateChart);
+      scope.$on('$destroy', unwatch);
+    }
 
     return {
       restrict: 'E',

@@ -33,13 +33,14 @@
     };
 
     $scope.updateChart = function() {
+      var randomPercent = Math.floor(Math.random() * 100) + "%";
       $scope.instances = {
         data: [
           { label: 'Current', slice: 1 },
           { label: 'Applied', slice: 7 }
         ],
         colors: [ '#1f83c6', '#74c476' ],
-        text: "100%"
+        text: randomPercent
       };
 
       $scope.ram = {
