@@ -49,7 +49,7 @@
     };
 
     // Change the data (optional)
-    $scope.updateChart = function() {
+    $scope.randomizeChart = function() {
       $scope.instances = {
         data: [
           { label: 'Current', slice: 1 },
@@ -67,7 +67,7 @@
 
   <hr>
 
-  <button type="button" ng-click="updateChart()">Update Charts</button>
+  <button type="button" ng-click="randomizeChart()">Update Charts</button>
   <table id="examples">
     <thead>
       <tr><th>Description</th><th>Code</th><th>Rendered</th></tr>
@@ -100,7 +100,7 @@
       <tr>
         <td>Using Font Awesome icon</td>
         <td>
-          <pre>&lt;donut-chart chart-data="ram" chart-diameter="150" chart-thickness="20" font-family="FontAwesome" font-size="3.5em"&gt;&lt;/donut-chart&gt;
+          <pre>&lt;donut-chart chart-data="ram" chart-diameter="150" chart-thickness="20" font-family="FontAwesome" font-size="3.5em" fill="#1f83c6"&gt;&lt;/donut-chart&gt;
           </pre>
         </td>
         <td>
@@ -109,7 +109,8 @@
             chart-diameter="150"
             chart-thickness="20"
             font-family="FontAwesome"
-            font-size="3.5em">
+            font-size="3.5em"
+            fill="#1f83c6">
           </donut-chart>
         </td>
       </tr>

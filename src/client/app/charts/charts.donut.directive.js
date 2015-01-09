@@ -38,7 +38,7 @@
              .style('fill', function(d) { return colorScale(d.data.label); })
              .attr('title', function(d) { return d.data.label + ': ' + d.data.slice; });
 
-        d3.select(element[0]).select('.label').remove();
+        d3.select(element[0]).select('.chart-label').remove();
         var text = data.unicodeText ? String.fromCharCode(parseInt(data.unicodeText, 16)) : data.text;
         if (text) {
           var textAttributes = {
@@ -56,7 +56,7 @@
           });
 
           svg.append('g')
-             .attr('class', 'label')
+             .attr('class', 'chart-label')
              .append('text')
              .text(text)
              .attr(textAttributes);

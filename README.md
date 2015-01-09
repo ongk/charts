@@ -26,7 +26,7 @@ angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
   };
 
   // Change the data (optional)
-  $scope.updateChart = function() {
+  $scope.randomizeChart = function() {
     $scope.instances = {
       data: [
         { label: 'Current', slice: 1 },
