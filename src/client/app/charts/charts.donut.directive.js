@@ -63,15 +63,12 @@
         }
       }
 
-      var unwatch = scope.$watch('chartData', updateChart);
+      var unwatch = scope.$watch(attrs.chartData, updateChart);
       scope.$on('$destroy', unwatch);
     }
 
     return {
       restrict: 'E',
-      scope: {
-        chartData: "="
-      },
       link: link
     }
 
