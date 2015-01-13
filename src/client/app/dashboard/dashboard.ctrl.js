@@ -14,10 +14,11 @@
     };
 
     $scope.vcpus = {
+      title: 'Total VCPUs',
       data: [
-        { label: 'Current', slice: 1 },
-        { label: 'Applied', slice: 1 },
-        { label: 'Available', slice: 6 }
+        { label: 'Current', slice: 1, showKey: true },
+        { label: 'Applied', slice: 1, showKey: true },
+        { label: 'Available', slice: 6, showKey: true }
       ],
       colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
       text: "30%"
@@ -36,19 +37,21 @@
     $scope.randomizeChart = function() {
 
       $scope.instances = {
+        title: 'Total Instances',
         data: [
-          { label: 'Current', slice: Math.floor(Math.random() * 10) + 2 },
-          { label: 'Applied', slice: Math.floor(Math.random() * 10) + 2 },
+          { label: 'Current', slice: Math.floor(Math.random() * 10) + 2, showKey: true },
+          { label: 'Applied', slice: Math.floor(Math.random() * 10) + 2, showKey: true },
           { label: 'Available', slice: Math.floor(Math.random() * 10) + 2 }
         ],
-        colors: [ '#1f83c6', '#81c1e7', '#74c476' ]
+        colors: [ '#1f83c6', '#74c476', '#81c1e7' ]
       };
 
       $scope.vcpus = {
+        title: 'Total VCPUs',
         data: [
-          { label: 'Current', slice: Math.floor(Math.random() * 10240) + 1024 },
-          { label: 'Applied', slice: Math.floor(Math.random() * 10240) + 1024 },
-          { label: 'Available', slice: Math.floor(Math.random() * 10240) + 1024 }
+          { label: 'Current', slice: Math.floor(Math.random() * 10240) + 1024, showKey: true },
+          { label: 'Applied', slice: Math.floor(Math.random() * 10240) + 1024, showKey: true },
+          { label: 'Available', slice: Math.floor(Math.random() * 10240) + 1024, showKey: true }
         ],
         colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
         text: (Math.floor(Math.random() * 90) + 5) + "%"
