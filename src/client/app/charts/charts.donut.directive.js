@@ -56,7 +56,7 @@
              .attr('class', 'arc');
 
         donut.attr('title', function(d) { return d.data.label + ': ' + d.data.slice; })
-             .style('fill', function(d) { return colorScale(d.data.label); });
+             .style('fill', function(d, i) { return colorScale(i); });
 
         donut.transition()
              .duration(500)
@@ -109,7 +109,7 @@
           }
 
           var sliceSum = d3.sum(sliceData, function(d) { return d.slice; });
-          var filteredKeys = sliceData.filter(function(d) { return d.showKey; });
+          var filteredKeys = sliceData.filter(function(d) { return !d.hasOwnProperty('showKey') || d.showKey; });
 
           if (filteredKeys.length) {
             var keys = legend.append('g')
