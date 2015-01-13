@@ -33,6 +33,16 @@
                       .attr('class', 'legend')
                       .attr('transform', 'translate(' + (diameter + 12) + ',0)');
 
+      var animate = function(d) {
+        this._current = this._current ? this._current : { startAngle: 0, endAngle: 0 };
+        var interpolate = d3.interpolate(this._current, d);
+        this._current = interpolate(0);
+
+        return function(t) {
+          return arc(interpolate(t));
+        };
+      };
+
       function updateChart(data) {
         var sliceData = data.data;
         var colorScale = data.colors ? d3.scale.ordinal().range(data.colors) : d3.scale.category20();
@@ -50,14 +60,7 @@
 
         donut.transition()
              .duration(500)
-             .attrTween('d', function(d) {
-                this._current = this._current ? this._current : { startAngle: 0, endAngle: 0 };
-                var interpolate = d3.interpolate(this._current, d);
-                this._current = interpolate(0);
-                return function(t) {
-                  return arc(interpolate(t));
-                };
-              });;
+             .attrTween('d', animate);
 
         donut.exit().remove();
 
@@ -92,13 +95,17 @@
           legend.selectAll('*').remove();
 
           if (data.title) {
+            var titleAttributes = {
+              'x': 0,
+              'y': titleFontSize + 2,
+              'text-anchor': 'start',
+              'font-size': titleFontSize + 'px',
+              'font-weight': 600
+            };
+
             legend.append('text')
                   .text(data.title)
-                  .attr('x', 0)
-                  .attr('y', titleFontSize + 2)
-                  .attr('text-anchor', 'start')
-                  .attr('font-size', titleFontSize + 'px')
-                  .attr('font-weight', 600);
+                  .attr(titleAttributes);
           }
 
           var sliceSum = d3.sum(sliceData, function(d) { return d.slice; });
@@ -121,16 +128,16 @@
                      .attr('width', 3)
                      .attr('fill', function(d) { return colorScale(d.label); });
 
-            var keyLabelY = keyFontSize / 2;
+            var keyLabelAttributes = {
+              'x': 8,
+              'y': keyFontSize / 2,
+              'dy': '0.35em',
+              'font-size': keyFontSize + 'px',
+              'fill': '#444444'
+            };
             keyLabels.append('text')
-                     .attr('x', 8)
-                     .attr('y', keyLabelY)
-                     .attr('dy', '0.35em')
-                     .attr('font-size', keyFontSize + 'px')
                      .text(function(d) { return d.slice + '/' + sliceSum + ' ' + d.label; })
-                     .attr('fill', '#444444');
-
-            keys.exit().remove();
+                     .attr(keyLabelAttributes);
           }
         }
       }
