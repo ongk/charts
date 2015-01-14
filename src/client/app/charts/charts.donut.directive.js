@@ -33,15 +33,15 @@
                       .attr('class', 'legend')
                       .attr('transform', 'translate(' + (diameter + 12) + ',0)');
 
-      var animate = function(d) {
-        this._current = this._current ? this._current : { startAngle: 0, endAngle: 0 };
-        var interpolate = d3.interpolate(this._current, d);
-        this._current = interpolate(0);
+      function animate(d) {
+        this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
+        var interpolate = d3.interpolate(this.lastAngle, d);
+        this.lastAngle = interpolate(0);
 
         return function(t) {
           return arc(interpolate(t));
         };
-      };
+      }
 
       function updateChart(data) {
         var sliceData = data.data;
