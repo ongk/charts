@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.1.3</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine.css">
+
+  <script src="lib/jasmine.js"></script>
+  <script src="lib/jasmine-html.js"></script>
+  <script src="lib/boot.js"></script>
+
+  <!-- include source files here... -->
+  <script src="../../bower_components/angular/angular.min.js"></script>
+  <script src="../../bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="../../bower_components/d3/d3.min.js"></script>
+  <script src="app/charts/charts.module.js"></script>
+  <script src="app/charts/charts.donut.directive.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="app/charts/charts.donut.directive.spec.js"></script>
+</head>
+<body>
+  <script>
+    if (typeof jasmine === 'undefined') {
+      document.write('<pre>Make sure Jasmine files are installed in src/client/lib</pre>');
+    }
+  </script>
+</body>
+</html>

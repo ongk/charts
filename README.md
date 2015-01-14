@@ -5,7 +5,7 @@ This directive generates a simple donut chart using D3. Any changes to chart-dat
 ### Markup
 ```
 <div ng-app="hz.app" ng-controller="MyCtrl">
-  <donut-chart chart-data="data" chart-text="25%"&gt;&lt;/donut-chart>
+  <donut-chart chart-data="data" chart-text="25%"></donut-chart>
 </div>
 ```
 
@@ -13,26 +13,26 @@ This directive generates a simple donut chart using D3. Any changes to chart-dat
 ```
 angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
   $scope.instances = {
-    title: "Total Instances",
+    title: 'Total Instances',
     data: [
         { label: 'Current', slice: 1 },
         { label: 'Applied', slice: 1 },
         { label: 'Available', slice: 6, showKey: false }
       ],
     colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-    text: "25%"
+    text: '25%'
   };
 
   // Change the data (optional)
   $scope.randomizeChart = function() {
     $scope.instances = {
-      title: "Total Instances",
+      title: 'Total Instances',
       data: [
         { label: 'Current', slice: 1 },
         { label: 'Applied', slice: 7 }
       ],
       colors: [ '#1f83c6', '#ff0000' ],
-      text: "100%"
+      text: '100%'
     };
   };
 }]);

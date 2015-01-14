@@ -3,6 +3,13 @@
 
   angular.module('hz.app.charts', []).directive('donutChart', function() {
 
+    var directive = {
+      restrict: 'E',
+      link: link
+    };
+
+    return directive;
+
     function link(scope, element, attrs) {
       var diameter = attrs.chartDiameter ? parseInt(attrs.chartDiameter) : 70;
       var radius = diameter / 2;
@@ -144,11 +151,6 @@
 
       var unwatch = scope.$watch(attrs.chartData, updateChart);
       scope.$on('$destroy', unwatch);
-    }
-
-    return {
-      restrict: 'E',
-      link: link
     }
 
   });

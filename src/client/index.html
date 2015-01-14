@@ -42,26 +42,26 @@
         <pre>
   angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
     $scope.instances = {
-      title: "Total Instances",
+      title: 'Total Instances',
       data: [
         { label: 'Current', slice: 1 },
         { label: 'Applied', slice: 1 },
         { label: 'Available', slice: 6, showKey: false }
       ],
       colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-      text: "25%"
+      text: '25%'
     };
 
     // Change the data (optional)
     $scope.randomizeChart = function() {
-      title: "Total Instances",
+      title: 'Total Instances',
       $scope.instances = {
         data: [
           { label: 'Current', slice: 1 },
           { label: 'Applied', slice: 7 }
         ],
         colors: [ '#1f83c6', '#ff0000' ],
-        text: "100%"
+        text: '100%'
       };
     };
   }]);

@@ -21,7 +21,7 @@
         { label: 'Available', slice: 6 }
       ],
       colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-      text: "30%"
+      text: '30%'
     };
 
     $scope.ram = {
@@ -31,7 +31,7 @@
         { label: 'Available', slice: 10240 }
       ],
       colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-      unicodeText: "f1b2"
+      unicodeText: 'f1b2'
     };
 
     $scope.randomizeChart = function() {
@@ -54,7 +54,7 @@
           { label: 'Available', slice: Math.floor(Math.random() * 10240) + 1024 }
         ],
         colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-        text: (Math.floor(Math.random() * 90) + 5) + "%"
+        text: (Math.floor(Math.random() * 90) + 5) + '%'
       };
     };
   }
