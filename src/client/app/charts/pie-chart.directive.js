@@ -83,10 +83,9 @@
       }
 
       function animate(d) {
-        var self = this;
-        self.lastAngle = self.lastAngle || { startAngle: 0, endAngle: 0 };
-        var interpolate = d3.interpolate(self.lastAngle, d);
-        self.lastAngle = interpolate(0);
+        this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
+        var interpolate = d3.interpolate(this.lastAngle, d);
+        this.lastAngle = interpolate(0);
 
         return function(t) {
           return arc(interpolate(t));
