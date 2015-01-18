@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  angular
+    .module('hz.dashboard', [])
+    .controller('DashboardCtrl', [ '$scope', DashboardCtrl ]);
+
   function DashboardCtrl($scope) {
 
     $scope.instances = {
@@ -58,7 +62,5 @@
       };
     };
   }
-
-  angular.module('hz.app.dashboard').controller('DashboardCtrl', [ '$scope', DashboardCtrl ]);
 
 })();

@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('hz.app', [ 'hz.app.dashboard', 'hz.app.charts' ]);
+  angular.module('hz', [ 'hz.dashboard', 'hz.widgets.charts' ]);
 
 })();
