@@ -1,0 +1,3 @@
+{
+  "predef": [ "angular", "d3", "describe", "beforeEach", "it", "expect", "module", "inject" ]
+}

@@ -7,7 +7,6 @@ describe('pie chart directive', function() {
   beforeEach(inject(function($compile, $rootScope) {
       scope = $rootScope;
 
-      scope.testing = 'this is test';
       scope.testData = {
         title: 'Total Instances',
         data: [
@@ -54,7 +53,7 @@ describe('pie chart directive', function() {
     expect(element[0].querySelector('g.legend')).toBeDefined();
   });
 
-  it('should have a correct legend title "Launch Instances"', function() {
+  it('should have a correct legend title "Total Instances"', function() {
     expect(element[0].querySelector('g.legend').firstChild.innerHTML).toBe(scope.testData.title);
   });
 

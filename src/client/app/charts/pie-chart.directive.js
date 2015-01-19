@@ -82,7 +82,7 @@
         }
       }
 
-      function animate(d) {
+      var animate = function animate(d) {
         this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
         var interpolate = d3.interpolate(this.lastAngle, d);
         this.lastAngle = interpolate(0);
@@ -90,7 +90,7 @@
         return function(t) {
           return arc(interpolate(t));
         };
-      }
+      };
 
       function createSlices(data, colorScale) {
         var chart = slices.selectAll('path.slice')
@@ -105,8 +105,8 @@
           .style('fill', function(d, i) { return colorScale(i); });
 
         chart.transition()
-          .duration(500)
-          .attrTween('d', animate);
+                .duration(500)
+                .attrTween('d', animate);
 
         chart.exit().remove();
       }
@@ -128,10 +128,10 @@
         });
 
         slices.append('g')
-              .attr('class', 'chart-label')
-              .append('text')
-                .text(text)
-                .attr(textAttributes);
+                .attr('class', 'chart-label')
+                .append('text')
+                  .text(text)
+                  .attr(textAttributes);
       }
 
       function createLegendTitle(title) {
