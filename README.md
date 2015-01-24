@@ -39,10 +39,10 @@ angular.module('app').controller('MyCtrl', [ '$scope', function($scope) {
 ```
 
 ### Directive Attributes
-- chart-data (required) - attribute name of data defined in $scope
+- chart-data (required) - attribute name of data defined in `$scope`
 - chart-outer-radius - outer radius of pie/donut chart in pixels, default: 35
 - chart-inner-radius - inner radius of pie/donut chart in pixels, default: 0
 - chart-show-legend - show title and key labels, default: true
 - chart-title-font-size - legend title font size in pixels, default: 13
 - chart-key-font-size - legend key label font size in pixels, default: 12
-- Any attributes for &lt;text&gt; element such as font-size, font-family, fill, etc...
+- Any attributes for `<text>` element such as font-size, font-family, fill, etc...
