@@ -9,6 +9,7 @@
 
     var directive = {
       restrict: 'E',
+      scope: true,
       link: link
     };
 
