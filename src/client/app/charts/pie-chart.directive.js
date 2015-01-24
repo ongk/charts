@@ -60,9 +60,8 @@
             .select('.chart-label')
             .remove();
 
-        var text = data.unicodeText ? String.fromCharCode(parseInt(data.unicodeText, 16)) : data.text;
-        if (text) {
-          createLabel(text);
+        if (data.hasOwnProperty('text')) {
+          createLabel(data.text);
         }
 
         /* Chart legend */

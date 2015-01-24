@@ -35,7 +35,7 @@
         { label: 'Available', slice: 10240 }
       ],
       colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
-      unicodeText: 'f1b2'
+      text: '\uf1b2'
     };
 
     $scope.randomizeChart = function() {
